@@ -7,10 +7,9 @@ var can = [{"cx":50, "cy":50, "r":11, "color":"brown"},
 	   {"cx":250, "cy":250, "r":10, "color":"yellow"}];
 var st = true; //US MEDALS
 
-//add svg
-var svg = d3.select("body").append("svg")
-    .attr("width", 500)
-    .attr("height", 500);
+
+var svg = d3.select("svg");
+
 
 //add circle elements
 var circles = svg.selectAll("circle")
@@ -19,7 +18,7 @@ var circles = svg.selectAll("circle")
     .append("circle");
 
 var addAttr = function(){
-    circles.attr("cx", function(d){return d.cx} )
+   circles.attr("cx", function(d){return d.cx} )
 	.attr("cy", function(d){return d.cy} )
 	.attr("r", function(d){return d.r} )
 	.style("fill", function(d){return d.color});
@@ -31,7 +30,7 @@ var update = function(country){
     addAttr();
 };
 
-var button = d3.select("body").append("button")
+var button = d3.select("button")
     .text(function(){
 	return "Show me US's medals!";
     })
@@ -44,4 +43,3 @@ var button = d3.select("body").append("button")
 	  button.text("Show me US's medals!");}
 	st = !st;
     });
-
